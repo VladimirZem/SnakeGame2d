@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Zmeyka</title>
+</head>
+<body>
+    <section class="all__game">
+        <div class="game">
+            <div class="game__header">
+                <div class="game__score">
+                    <span class="score__count" >1234</span>
+                </div>
+                <div class="best__game"> Your best score:
+                    <span class="best__score">44444</span>
+                </div>
+                <div class="death__game"> Your died:
+                    <span class="death__score" >22</span>
+                </div>
+            </div>
+
+            <div class="canvas__wrapper">
+                <canvas class="game__canvas" width="660" height="545" ></canvas>
+            </div>
+            <div class="screen__op">
+                <output for="range__screen" class="range__numbers">650</output>
+                <input type="range" class="range__screen"  min="320" max="660" value="0" step="10" oninput="screenOp(value)">
+            </div>
+        </div>
+            <div class="start__stop">
+                <button class="start__game" > 
+                    <span class="button__line button__line__top"></span>
+                    <span class="button__line button__line__right"></span>
+                    <span class="button__line button__line__bottom"></span>
+                    <span class="button__line button__line__left"></span>
+                    Play
+                </button>
+                <button class="refresh__game" ></button>
+                <button class="stop__game" >
+                    <span class="button__line button__line__top__stop"></span>
+                    <span class="button__line button__line__right__stop"></span>
+                    <span class="button__line button__line__bottom__stop"></span>
+                    <span class="button__line button__line__left__stop"></span>
+                    Stop
+                </button>
+                <button class="music__game" ></button>
+                <button class="music__game__off"></button>
+                <div class="music__op">
+                    <output for="range__music" class="range__numbers__music">0.1</output>
+                    <input type="range" class="range__music"  min="0" max="1" value="0" step="0.1" oninput="screenMusic(value)">
+                </div>
+            </div>
+</section>
+    <script src="js/app.js" ></script>
+</body>
+</html>

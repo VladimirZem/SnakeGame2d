@@ -1,0 +1,383 @@
+body {
+	margin: 0px;
+	font-family: sans-serif;
+    background: url(image/zmeyka_2.jpg) no-repeat  ;
+    width: 100vw;
+    height: 500px;
+}
+
+/* Основной блок с игрой */
+.game {
+    margin-top: 275px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.canvas__wrapper {
+	background-color: #161618;
+	border-radius: 5px;
+	border: 10px solid #161618;
+	box-shadow: 0px 0px 40px 40px #161618;
+    background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' r='4' fill='%23525053'/%3E%3C/svg%3E%0A");
+}
+
+.game__canvas {
+	display: block;
+	border-radius: 5px;	
+    
+}
+
+.game__header {
+	padding-top: 1vmin;
+	padding-bottom: 1vmin;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/* Блок очков */
+.game__score {
+    position: absolute;
+    top: 300px;
+    right: 1550px;
+	padding: 10px 15px;
+	min-width: 160px;
+	height: 50px;
+	background: #121214;
+	border-radius: 5px;
+    box-shadow:4px 4px 14px #ffff00;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.score__count{
+	font-size: 3vmin;
+	color: #D21855;
+	font-weight: bold;
+}
+/* Блок лучший счет  (открывает после первой смерти) */
+
+
+.best__game {
+    position: absolute;
+    top: 400px;
+    right: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 15px;
+    bottom: 630px;
+    width: 250px;
+    height: 50px;
+    background: #121214;
+    box-shadow:2px 4px 24px #e63b08;
+    color: #ffff00;
+    font-size: 3vmin;
+    font-weight: bold;
+}
+
+.best__score{
+	font-size: 3vmin;
+	color: #D21855;
+	font-weight: bold;
+}
+
+
+/* Блок смеретй */
+.death__game {
+    position: absolute;
+    top: 500px;
+    right: 1500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 15px;
+    width: 250px;
+    height: 50px;
+    background: #121214;
+    box-shadow:2px 4px 24px #e63b08;
+    color: #ffff00;
+    font-size: 3vmin;
+    font-weight: bold;
+}
+
+.death__score {
+    font-size: 3vmin;
+	color: #D21855;
+	font-weight: bold;
+}
+
+
+/* Кнопка Refresh */
+
+.refresh__game{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    bottom: 70px;
+    left: 220px;
+    background: url(image/icons8-refresh.svg) no-repeat center;
+}
+.refresh__game:hover{
+    box-shadow: 0px 0px 40px #ffff00;
+    background-color: #fff;
+}
+
+
+
+/* Кнопка START */
+.start__game{
+    position: absolute;
+    top: 750px;
+    left: 70px;
+    padding: 10px 30px;
+    color: #06067a;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: none;
+    border: none;
+    transition: .2s;
+    margin-bottom: 20px;
+}
+
+.button__line {
+    position: absolute;
+    display: block; 
+}
+
+.button__line__top{
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent, #06067a);
+}
+.start__game:hover .button__line__top {
+    left: 100%;
+    transition: 1s;
+    transition-delay: .25s;
+}
+
+.button__line__bottom{
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent, #06067a);
+}
+.start__game:hover .button__line__bottom {
+    right: 100%;
+    transition: 1s;
+    transition-delay: .25s;
+}
+.button__line__left{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(0deg,transparent, #06067a);
+}
+.start__game:hover .button__line__left {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0s;
+}
+.button__line__right{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent, #06067a);
+}
+.start__game:hover .button__line__right {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0s;
+}
+
+.start__game:hover{
+    box-shadow: 0 0 10px #06067a, 0 0 40px #06067a, 0 0 80px #06067a;
+    background-color: #06067a;
+    color: #fff;
+    transition-delay: 1s;
+}
+
+
+
+/* Кнопка STOP */
+
+.stop__game{
+    position: absolute;
+    top: 750px;
+    left: 280px;
+    padding: 10px 30px;
+    color: #cd520b;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: none;
+    border: none;
+    transition: .2s;
+    margin-bottom: 20px;
+}
+
+.button__line__top__stop{
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent, #cd520b);
+}
+.stop__game:hover .button__line__top__stop {
+    left: 100%;
+    transition: 1s;
+    transition-delay: .25s;
+}
+
+.button__line__bottom__stop{
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent, #cd520b);
+}
+.stop__game:hover .button__line__bottom__stop {
+    right: 100%;
+    transition: 1s;
+    transition-delay: .25s;
+}
+.button__line__left__stop{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(0deg,transparent, #cd520b);
+}
+.stop__game:hover .button__line__left__stop {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0s;
+}
+.button__line__right__stop{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent, #cd520b);
+}
+.stop__game:hover .button__line__right__stop {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0s;
+}
+
+.stop__game:hover{
+    box-shadow: 0 0 10px #cd520b, 0 0 40px #cd520b, 0 0 80px #cd520b;
+    background-color: #cd520b;
+    color: #fff;
+    transition-delay: 1s;
+}
+
+
+/* Кнопка MUSIC */
+
+.music__game{
+    position: absolute;
+    z-index: 4;
+    left: 1450px;
+    bottom: 80px;
+    background: url(image/icons8-музыка.svg) center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+}
+
+.music__game:hover{
+    box-shadow: 0px 0px 40px #ffff00;
+    background-color: #fff;
+}
+
+
+.music__game__off{
+    position: absolute;
+    z-index: 4;
+    left: 1450px;
+    bottom: 80px;
+    background: url(image/speaker-3_96314.svg) center;
+    background-size: contain;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    display: none;
+}
+
+.music__game__off:hover{
+    box-shadow: 0px 0px 40px #ffff00;
+    background-color: #fff;
+}
+
+.music__op{
+    position: absolute;
+    z-index: 4;
+    left: 1650px;
+    bottom: 105px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+}
+
+output{
+    display: block;
+    width: 30px;
+	left: -20px;
+	top: -40px;
+	padding: 7px 10px;
+	background: #76de76;
+	color: #fff;
+	border-radius: 10px 10px 0 10px;
+	font-weight: bold;
+}
+
+/* //////////////// */
+
+
+/* Экран смерти */
+.gameover{
+    
+    background: url(image/34.jpg) no-repeat center;
+    background-size: cover;
+}
+
+/* Ползунок с шириной */
+.screen__op{
+    position: absolute;
+    left: 1500px;
+    top: 680px;
+}
+
+/* Первая игра */
+.first__game{
+    background: url(image/firstGame.jpg) no-repeat  ;
+    background-size: contain;
+   
+}
+
+
+
+
